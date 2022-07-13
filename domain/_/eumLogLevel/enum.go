@@ -1,9 +1,9 @@
-package domain
+package eumLogLevel
 
-type LogLevel int
+type Enum int
 
 const (
-	Trace LogLevel = iota
+	Trace Enum = iota
 	Debug
 	Information
 	Warning

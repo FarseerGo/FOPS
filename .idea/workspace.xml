@@ -4,7 +4,25 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="提交代码" />
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="提交代码">
+      <change afterPath="$PROJECT_DIR$/application/appLog/containerLog/dto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/build/build/dto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/build/buildProject/dto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/clientDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/eumTaskType/enum.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/runLogDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/taskDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/taskGroupDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/cluster/ClusterDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/yamlTpl/YamlTplDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/dockerHub/DockerHubDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/dockerfileTpl/DockerfileTplDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/git/GitDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/project/ProjectDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/security/admin/AdminDTO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/_/logLevel.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/_/eumLogLevel/enum.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,6 +50,7 @@
   <component name="ProjectId" id="2BOFzPuEETunqorS8hlc2WdRFFE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -51,28 +70,28 @@
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/steden/Desktop/code/project/FOPS.GO/domain/k8s/cluster&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/steden/Desktop/code/project/FOPS.GO/application/build/buildProject&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/build/buildProject" />
       <recent name="$PROJECT_DIR$/domain/k8s/cluster" />
       <recent name="$PROJECT_DIR$/application/k8s" />
       <recent name="$PROJECT_DIR$/domain/k8s/yamlTpl" />
       <recent name="$PROJECT_DIR$/domain/k8s/pod" />
-      <recent name="$PROJECT_DIR$/domain/build/device" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/domain/_/eumLogLevel" />
+      <recent name="$PROJECT_DIR$/application/fss" />
       <recent name="$PROJECT_DIR$/domain/_/eumRuntimeEnv" />
       <recent name="$PROJECT_DIR$/domain/_/eumK8SControllers" />
       <recent name="$PROJECT_DIR$/domain/_/eumBuildType" />
-      <recent name="$PROJECT_DIR$/domain/_/eumBuildStatus" />
-      <recent name="$PROJECT_DIR$/domain/_/eumK8SKind" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 测试.fops/application/metaData/projectGroupApp 中的 TestToList">
+  <component name="RunManager" selected="Go 构建.go build FOPS.GO/">
     <configuration name="go build AdminDO.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="FOPS" />
       <working_directory value="$PROJECT_DIR$/Domain" />
@@ -80,6 +99,13 @@
       <package value="FOPS.GO" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/Domain/Security/Admin/AdminDO.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build FOPS.GO/" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="FOPS.GO" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration name="go build FOPS/Interfaces" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -115,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build FOPS.GO/" />
         <item itemvalue="Go 测试.fops/application/metaData/projectGroupApp 中的 TestToList" />
         <item itemvalue="Go 测试.app_test.go" />
         <item itemvalue="Go 构建.go build FOPS/Interfaces" />
         <item itemvalue="Go 构建.go build AdminDO.go" />
-        <item itemvalue="Go 测试.fops/application/metaData/projectGroupApp 中的 TestToList" />
       </list>
     </recent_temporary>
   </component>
