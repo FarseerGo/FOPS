@@ -1,0 +1,12 @@
+go 1.18
+
+use (
+	../Farseer.Go/src/fs
+	../Farseer.Go/src/fs/utils
+	../Farseer.Go/src/fs/mapper
+	../Farseer.Go/src/fs/core
+	./application
+	./domain
+	./infrastructure
+	./interfaces
+)
