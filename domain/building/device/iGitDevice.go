@@ -1,6 +1,9 @@
 package device
 
-import "fops/domain/building/build"
+import (
+	"context"
+	"fops/domain/building/build"
+)
 
 type IGitDevice interface {
 	// GetGitPath 获取项目GIT源代码存的位置/var/lib/fops/git/{gitName}/
@@ -16,5 +19,5 @@ type IGitDevice interface {
 	// CloneOrPull 根据判断是否存在Git目录，来决定返回Clone or pull
 	CloneOrPull(git build.GitVO, progress chan string) bool
 	// CloneOrPullAndDependent 拉取主仓库及依赖仓库
-	CloneOrPullAndDependent(lstGit []build.GitVO, progress chan string) bool
+	CloneOrPullAndDependent(lstGit []build.GitVO, progress chan string, ctx context.Context) bool
 }
