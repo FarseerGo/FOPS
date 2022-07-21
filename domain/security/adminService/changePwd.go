@@ -12,15 +12,12 @@ func ChangePwd(repository admin.Repository, userName string, pwd string, newPwd 
 		return errors.New("请输入新密码")
 	}
 
-	admin := repository.ToInfoByUsername(userName, encrypt.Md5(pwd))
-	if admin.Id == 0 {
+	do := repository.ToInfoByUsername(userName, encrypt.Md5(pwd))
+	if do.Id == 0 {
 		return errors.New("原密码错误，请重新输入")
 	}
-	err := admin.EncryptPwd(newPwd)
-	if err != nil {
-		return err
-	}
+	do.EncryptPwd(newPwd)
 
-	repository.Update(admin.Id, admin)
+	repository.Update(do.Id, do)
 	return nil
 }

@@ -7,20 +7,15 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	container.Register(func() projectGroup.Repository { return &projectGroupRepository{} })
+	_ = container.Register(func() projectGroup.Repository { return &projectGroupRepository{} })
 }
 
 type projectGroupRepository struct {
 }
 
-// New 初始化对象
-func new() projectGroup.Repository {
-	return &projectGroupRepository{}
-}
-
 // ToList 项目组列表
-func (repository *projectGroupRepository) ToList() *[]projectGroup.DomainObject {
-	return &[]projectGroup.DomainObject{
+func (repository *projectGroupRepository) ToList() []projectGroup.DomainObject {
+	return []projectGroup.DomainObject{
 		{
 			Id:         1,
 			ClusterIds: []int{1, 2},

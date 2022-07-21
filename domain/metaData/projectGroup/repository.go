@@ -3,7 +3,7 @@ package projectGroup
 // Repository 项目管理仓储
 type Repository interface {
 	// ToList 项目组列表
-	ToList() *[]DomainObject
+	ToList() []DomainObject
 	// ToInfo 项目组信息
 	ToInfo(id int) *DomainObject
 	// Count 项目组数量

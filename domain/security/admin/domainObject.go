@@ -1,7 +1,6 @@
 package admin
 
 import (
-	"errors"
 	"fs/utils/encrypt"
 	"time"
 )
@@ -27,14 +26,13 @@ func New() DomainObject {
 }
 
 // EncryptPwd 对密码加密
-func (admin *DomainObject) EncryptPwd(pwd string) error {
+func (admin *DomainObject) EncryptPwd(pwd string) {
 	if pwd == "" {
 		if len(pwd) < 6 {
-			return errors.New("管理员密码长度不能小于6")
+			panic("管理员密码长度不能小于6")
 		}
 		admin.UserPwd = encrypt.Md5(pwd)
 	}
-	return nil
 }
 
 // SetLoginIp 修改登陆时间信息

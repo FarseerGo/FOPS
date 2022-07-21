@@ -2,7 +2,7 @@ package pod
 
 import (
 	"fops/domain/_/eumK8SKind"
-	"fs/utils/lambda"
+	"fs/linq"
 	"strconv"
 	"strings"
 )
@@ -48,22 +48,22 @@ func New() DomainObject {
 
 // SetYamlTpl 设置Yaml模板属性
 func (do *DomainObject) SetYamlTpl(lstYaml []YamlTplVO, deploymentId int, ingressId int, serviceId int, configId int) {
-	do.K8STplDeployment = lambda.By(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == deploymentId })
-	do.K8STplIngress = lambda.By(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == ingressId })
-	do.K8STplService = lambda.By(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == serviceId })
-	do.K8STplConfig = lambda.By(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == configId })
+	do.K8STplDeployment = linq.From(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == deploymentId })
+	do.K8STplIngress = linq.From(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == ingressId })
+	do.K8STplService = linq.From(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == serviceId })
+	do.K8STplConfig = linq.From(lstYaml).Find(func(o YamlTplVO) bool { return o.Id == configId })
 
-	do.K8STplDeploymentList = lambda.By(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Controllers })
-	do.K8STplIngressList = lambda.By(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Ingress })
-	do.K8STplServiceList = lambda.By(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Service })
-	do.K8STplConfigList = lambda.By(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Config })
+	do.K8STplDeploymentList = linq.From(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Controllers })
+	do.K8STplIngressList = linq.From(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Ingress })
+	do.K8STplServiceList = linq.From(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Service })
+	do.K8STplConfigList = linq.From(lstYaml).FindAll(func(o YamlTplVO) bool { return o.K8SKindType == eumK8SKind.Config })
 }
 
 // 将已使用的模板，合并成一个大的yaml
 func (do *DomainObject) MergeTplYaml() string {
 	lstYaml := []string{do.K8STplDeployment.Template, do.K8STplService.Template, do.K8STplIngress.Template, do.K8STplConfig.Template}
-	//lstYaml=lambda.By(lstYaml).RemoveNil()
-	lambda.By(lstYaml).RemoveNil()
+	//lstYaml=linq.From(lstYaml).RemoveNil()
+	linq.FromC(lstYaml).Remove("")
 
 	// 替换模板
 	for index, _ := range lstYaml {

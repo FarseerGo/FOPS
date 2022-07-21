@@ -1,11 +1,12 @@
-package containerLog
+package appLog
 
 import (
 	"fops/domain/_/eumLogLevel"
 	"time"
 )
 
-type DomainObject struct {
+// ContainerLogDto 容器日志记录
+type ContainerLogDto struct {
 	// 主键
 	Id string
 	// 应用名称
@@ -28,8 +29,4 @@ type DomainObject struct {
 	Content string
 	// 日志时间
 	CreateAt time.Time
-}
-
-func New() DomainObject {
-	return DomainObject{}
 }

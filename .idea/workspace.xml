@@ -4,24 +4,72 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="提交代码">
-      <change afterPath="$PROJECT_DIR$/application/appLog/containerLog/dto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/build/build/dto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/build/buildProject/dto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/fss/clientDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/fss/eumTaskType/enum.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/fss/runLogDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/fss/taskDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/fss/taskGroupDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/k8s/cluster/ClusterDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/k8s/yamlTpl/YamlTplDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/metaData/dockerHub/DockerHubDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/metaData/dockerfileTpl/DockerfileTplDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/metaData/git/GitDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/metaData/project/ProjectDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/security/admin/AdminDTO.go" afterDir="false" />
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="添加DTO">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/appLog/containerLogApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/building/buildApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/building/buildProjectApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/clientApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/runLogApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/taskApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/fss/taskGroupApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/clusterApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/kubectlSetImageApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/kubectlSetYamlApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/podApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/k8s/yamlTplApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/linkTrack/linkTrackApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/dockerHubApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/dockerfileTplApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/gitApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/metaData/projectApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/security/adminApp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/building/build/buildFinishedEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/fss/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/_/logLevel.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/_/eumLogLevel/enum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/appLog/containerLog/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/appLog/containerLogDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/build/build/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/building/buildAppDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/build/buildProject/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/building/buildProjectAppDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fss/clientDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/fss/clientDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/application/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/application/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/cluster/ClusterDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/clusterDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/yamlTpl/YamlTplDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/yamlTplDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/dockerHub/DockerHubDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/dockerHubDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/dockerfileTpl/DockerfileTplDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/dockerfileTplDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/git/GitDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/gitDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/project/ProjectDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroupApp/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroupApp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroupApp/app_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroupApp_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroupApp/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroupDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/security/admin/AdminDTO.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/security/adminDto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/appLog/containerLog/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/appLog/containerLog/domainObject.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/clusterVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/clusterVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/dockerVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/dockerVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/domainObject.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/envVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/envVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/gitVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/gitVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/logVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/logVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/projectVO.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/projectVO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/build/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iCopyToDistDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iCopyToDistDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iDirectoryDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDirectoryDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iDockerDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDockerDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iDotnetDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDotnetDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iGitDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iGitDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iKubectlDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iKubectlDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iLogWriteDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iLogWriteDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build/device/iShellDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iShellDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/k8s/pod/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/k8s/pod/domainObject.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/metaData/project/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/project/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/metaData/projectGroup/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/projectGroup/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/security/admin/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/security/admin/domainObject.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/security/adminService/add.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/security/adminService/changePwd.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/security/adminService/changePwd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/security/adminService/update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,37 +106,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/steden/Desktop/code/project/FOPS.GO/application/build/buildProject&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/steden/Desktop/code/project/FOPS.GO",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/application/build/buildProject" />
       <recent name="$PROJECT_DIR$/domain/k8s/cluster" />
       <recent name="$PROJECT_DIR$/application/k8s" />
       <recent name="$PROJECT_DIR$/domain/k8s/yamlTpl" />
-      <recent name="$PROJECT_DIR$/domain/k8s/pod" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/domain/_/eumLogLevel" />
-      <recent name="$PROJECT_DIR$/application/fss" />
-      <recent name="$PROJECT_DIR$/domain/_/eumRuntimeEnv" />
-      <recent name="$PROJECT_DIR$/domain/_/eumK8SControllers" />
-      <recent name="$PROJECT_DIR$/domain/_/eumBuildType" />
+      <recent name="$PROJECT_DIR$/application/security" />
+      <recent name="$PROJECT_DIR$/application/metaData" />
+      <recent name="$PROJECT_DIR$/application/k8s" />
+      <recent name="$PROJECT_DIR$/domain/fss" />
+      <recent name="$PROJECT_DIR$/application/build" />
     </key>
   </component>
   <component name="RunManager" selected="Go 构建.go build FOPS.GO/">
@@ -156,6 +204,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="041f0b1c-e8d3-4767-b9d3-2469badf5ba0">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/steden/Desktop/code/project/FOPS.GO/application" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -163,10 +236,16 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="041f0b1c-e8d3-4767-b9d3-2469badf5ba0" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="提交代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="提交代码" />
+    <MESSAGE value="添加DTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加DTO" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -174,16 +253,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/application/metaData/projectGroupApp/app.go</url>
-          <line>13</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/application/metaData/projectGroupApp/app.go</url>
-          <line>12</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/domain/k8s/pod/domainObject.go</url>
           <line>65</line>
