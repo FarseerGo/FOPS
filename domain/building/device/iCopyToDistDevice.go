@@ -1,7 +1,5 @@
 package device
 
-import "fops/domain/building/build"
-
 type ICopyToDistDevice interface {
-	Copy(lstGit []build.GitVO, env build.EnvVO, progress chan string)
+	Copy(lstGit []vo.GitVO, env vo.EnvVO, progress chan string)
 }

@@ -26,17 +26,17 @@ type DomainObject struct {
 	// 构建的服务端id
 	BuildServerId int64
 	// 构建日志
-	Log LogVO
+	Log vo.LogVO
 	// 环境变量
-	Env EnvVO
+	Env vo.EnvVO
 	// 项目
-	Project ProjectVO
+	Project vo.ProjectVO
 	// Git
-	Gits []GitVO
+	Gits []vo.GitVO
 	// Docker
-	Docker DockerVO
+	Docker vo.DockerVO
 	// 集群信息
-	Cluster ClusterVO
+	Cluster vo.ClusterVO
 }
 
 // NewDO 用于Map
@@ -45,7 +45,7 @@ func NewDO() DomainObject {
 }
 
 // NewDO 添加新的构建
-func NewDO1(buildNumber int, project ProjectVO, gits []GitVO, docker DockerVO, cluster ClusterVO) DomainObject {
+func NewDO1(buildNumber int, project vo.ProjectVO, gits []vo.GitVO, docker vo.DockerVO, cluster vo.ClusterVO) DomainObject {
 	return DomainObject{
 		BuildNumber:   buildNumber + 1,
 		Status:        0,
@@ -61,7 +61,7 @@ func NewDO1(buildNumber int, project ProjectVO, gits []GitVO, docker DockerVO, c
 }
 
 // NewDO 添加新的构建
-func NewDO2(buildNumber int, project ProjectVO, cluster ClusterVO) DomainObject {
+func NewDO2(buildNumber int, project vo.ProjectVO, cluster vo.ClusterVO) DomainObject {
 	return DomainObject{
 		BuildNumber: buildNumber + 1,
 		Project:     project,
@@ -76,7 +76,7 @@ func NewDO2(buildNumber int, project ProjectVO, cluster ClusterVO) DomainObject 
 }
 
 // GetGitMaster 获取Git主仓库
-func (do *DomainObject) GetGitMaster() GitVO {
+func (do *DomainObject) GetGitMaster() vo.GitVO {
 	for _, git := range do.Gits {
 		if git.IsMaster {
 			return git
@@ -87,7 +87,7 @@ func (do *DomainObject) GetGitMaster() GitVO {
 
 // GenerateEnv 生成环境变量
 func (do *DomainObject) GenerateEnv(projectGitRoot string, dockerHub string, dockerImage string, gitName string) {
-	do.Env = EnvVO{
+	do.Env = vo.EnvVO{
 		BuildId:           do.Id,
 		BuildNumber:       do.BuildNumber,
 		ProjectId:         do.Project.Id,
@@ -143,11 +143,11 @@ func (do *DomainObject) GenerateDockerfileContent() {
 		lstCopyCmd = append(lstCopyCmd, cmd)
 
 		dockerfile = strings.ReplaceAll(dockerfile, "${dotnet_restore}", strings.Join(lstCopyCmd, "\r\n"))
-		do.Docker = NewDocker(do.Docker, dockerfile)
+		do.Docker = vo.NewDocker(do.Docker, dockerfile)
 	}
 }
 
-func (do *DomainObject) Set(project ProjectVO, docker DockerVO, cluster ClusterVO, gits []GitVO) {
+func (do *DomainObject) Set(project vo.ProjectVO, docker vo.DockerVO, cluster vo.ClusterVO, gits []vo.GitVO) {
 	do.Project = project
 	do.Gits = gits
 	do.Docker = docker

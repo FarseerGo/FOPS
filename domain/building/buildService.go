@@ -109,7 +109,7 @@ func (service *BuildService) fail(buildDo build.DomainObject, progress chan stri
 	progress <- "执行失败，退出构建。"
 
 	// 发布事件
-	build.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: false}.PublishEvent()
+	event.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: false}.PublishEvent()
 
 	service.repository.Cancel(buildDo.Id)
 }
@@ -120,7 +120,7 @@ func (service *BuildService) success(buildDo build.DomainObject, progress chan s
 	progress <- "构建完成。"
 
 	// 发布事件
-	build.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: true}.PublishEvent()
+	event.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: true}.PublishEvent()
 
 	service.repository.Success(buildDo.Id)
 }

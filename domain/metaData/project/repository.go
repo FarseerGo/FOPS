@@ -24,7 +24,7 @@ type Repository interface {
 	// UpdateDockerVer 修改镜像版本
 	UpdateDockerVer(id int, dockerVer string)
 	// UpdateClusterVer 修改集群的镜像版本
-	UpdateClusterVer(id int, dicClusterVer map[int]domain.ClusterVerVO)
+	UpdateClusterVer(id int, dicClusterVer map[int]*domain.ClusterVerVO)
 	// Delete 删除项目
 	Delete(id int)
 }
