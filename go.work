@@ -1,9 +1,6 @@
 go 1.18
 
 use (
+	./
 	../Farseer.Go/src/fs
-	./application
-	./domain
-	./infrastructure
-	./interfaces
 )
