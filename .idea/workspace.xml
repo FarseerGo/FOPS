@@ -4,21 +4,30 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="完成事件订阅">
-      <change afterPath="$PROJECT_DIR$/farseer.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/queue/buildLogConsumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/queue/buildLogVO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/admin/agent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/admin/po.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/dbContext/mysqlContext.go" afterDir="false" />
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="实现数据库的配置">
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/admin/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/build/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/build/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/cluster/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/cluster/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/containerLog/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/containerLog/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHub/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHub/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTpl/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTpl/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/git/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/git/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/project/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/project/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroup/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroup/po.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTpl/agent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTpl/po.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.work" beforeDir="false" afterPath="$PROJECT_DIR$/go.work" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/interfaces/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/admin/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/admin/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/admin/po.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/dbContext/mysqlContext.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/context/mysqlContext.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +76,7 @@
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/Users/steden/Desktop/code/project/FOPS.GO/interfaces",
+    "last_opened_file_path": "/Users/steden/Desktop/code/project/FOPS.GO/infrastructure/repository/agent/containerLog",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "project.propVCSSupport.Mappings"
   },
@@ -79,18 +88,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/interfaces" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/application/build/buildProject" />
-      <recent name="$PROJECT_DIR$/domain/k8s/cluster" />
-      <recent name="$PROJECT_DIR$/application/k8s" />
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent/containerLog" />
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent/yamlTpl" />
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent/projectGroup" />
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent/project" />
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent/git" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/infrastructure/repository/agent" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/interfaces" />
       <recent name="$PROJECT_DIR$/application/security/admin" />
       <recent name="$PROJECT_DIR$/application/metaData/projectGroup" />
-      <recent name="$PROJECT_DIR$/application/metaData/project" />
     </key>
   </component>
   <component name="RunManager" selected="Go 构建.go build fops">
@@ -202,7 +211,8 @@
     <MESSAGE value="实现基础版的代码" />
     <MESSAGE value="完成应用层、领域层代码" />
     <MESSAGE value="完成事件订阅" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成事件订阅" />
+    <MESSAGE value="实现数据库的配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现数据库的配置" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -217,68 +227,88 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>34</line>
+          <line>35</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>68</line>
+          <line>76</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>73</line>
+          <line>81</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>78</line>
+          <line>86</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>83</line>
+          <line>101</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>89</line>
+          <line>115</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>95</line>
+          <line>121</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>101</line>
+          <line>127</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>107</line>
+          <line>133</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>111</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>117</line>
+          <line>142</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>121</line>
+          <line>146</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/configure/get.go</url>
           <line>8</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
+          <line>151</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
+          <line>163</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
+          <line>187</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
+          <line>199</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
+          <line>211</line>
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

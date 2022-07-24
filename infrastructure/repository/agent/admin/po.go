@@ -21,5 +21,3 @@ type PO struct {
 	// 创建人ID
 	CreateId string
 }
-
-func (PO) TableName() string { return "admin" }
