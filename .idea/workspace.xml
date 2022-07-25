@@ -4,24 +4,42 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="完成仓储">
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="调整agent层">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/k8s/cluster/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/cluster/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/metaData/dockerfileTpl/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/dockerfileTpl/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/metaData/project/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/project/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroup/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroup/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/device/iCopyToDistDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iCopyToDistDevice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/device/iDockerDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDockerDevice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/device/iKubectlDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iKubectlDevice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/device/iShellDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iShellDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/building/device/iDotnetDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDotnetDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/metaData/project/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/project/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/adminRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/adminRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/adminPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/buildPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/clusterAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/clusterAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/clusterPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/containerLogAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/containerLogAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/containerLogPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHubAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHubAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/dockerHubPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTplAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTplAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/dockerfileTplPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/gitAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/gitAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/gitPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/projectPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroupAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroupAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/projectGroupPO.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTplAgent/agent.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTplAgent/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/model/yamlTplPO.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/buildRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/buildRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/clusterRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/clusterRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/containerLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/containerLogRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/context/mysqlContext.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/context/mysqlContext.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/dockerHubRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/dockerHubRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/dockerfileTplRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/dockerfileTplRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/gitRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/gitRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/podRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/podRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/projectRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/projectRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/yamlTplRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/yamlTplRepository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,11 +108,11 @@
       <recent name="$PROJECT_DIR$/infrastructure/repository/agent/git" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/infrastructure/repository/po" />
       <recent name="$PROJECT_DIR$/infrastructure/repository/agent" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/interfaces" />
       <recent name="$PROJECT_DIR$/application/security/admin" />
-      <recent name="$PROJECT_DIR$/application/metaData/projectGroup" />
     </key>
   </component>
   <component name="RunManager" selected="Go 构建.go build fops">
@@ -209,7 +227,8 @@
     <MESSAGE value="实现数据库的配置" />
     <MESSAGE value="完成数据库的agent" />
     <MESSAGE value="完成仓储" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成仓储" />
+    <MESSAGE value="调整agent层" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整agent层" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

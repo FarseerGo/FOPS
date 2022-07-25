@@ -1,8 +1,8 @@
-package adminAgent
+package model
 
 import "time"
 
-type PO struct {
+type AdminPO struct {
 	Id int `gorm:"primaryKey"`
 	// 管理员名称
 	UserName string

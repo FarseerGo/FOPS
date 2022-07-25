@@ -3,81 +3,95 @@ package repository
 import (
 	domain "fops/domain/_"
 	"fops/domain/metaData/project"
-	"fops/infrastructure/repository/agent/projectAgent"
+	"fops/infrastructure/repository/context"
+	"fops/infrastructure/repository/model"
 	"fs/core/container"
+	"fs/data"
 	"fs/mapper"
 )
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() project.Repository { return &projectRepository{} })
+	_ = container.Register(func() project.Repository { return &projectRepository{data.Init[context.MysqlContext]().Project} })
 }
 
 type projectRepository struct {
+	data.TableSet[model.ProjectPO]
 }
 
 // ToList 项目列表
 func (repository projectRepository) ToList() []project.DomainObject {
-	lst := projectAgent.ToList()
+	lst := repository.ToList()
 	return mapper.Array[project.DomainObject](lst)
 }
 
 // ToListByGroupId 项目列表
 func (repository projectRepository) ToListByGroupId(groupId int) []project.DomainObject {
-	lst := projectAgent.ToListByGroupId(groupId)
+	lst := repository.Where("GroupId = ?", groupId).Select("Id", "Name", "DockerVer", "ClusterVer", "DockerHub", "GroupId", "GitId", "BuildType", "DockerfileTpl").ToList()
 	return mapper.Array[project.DomainObject](lst)
 }
 
 // ToAppList 应用列表
 func (repository projectRepository) ToAppList() []project.DomainObject {
-	lst := projectAgent.ToAppList()
+	lst := repository.Where("AppId <> ''").ToList()
 	return mapper.Array[project.DomainObject](lst)
 }
 
 // ToInfo 项目信息
 func (repository projectRepository) ToInfo(id int) project.DomainObject {
-	po := projectAgent.ToInfo(id)
+	po := repository.Where("Id = ?", id).ToEntity()
 	return mapper.Single[project.DomainObject](po)
 }
 
-// Count 项目数量
-func (repository projectRepository) Count() int64 {
-	return projectAgent.Count()
-}
+//// Count 项目数量
+//func (repository projectRepository) Count() int64 {
+//	return repository.Count()
+//}
 
 // GroupCount 使用项目组的数量
 func (repository projectRepository) GroupCount(groupId int) int64 {
-	return projectAgent.GroupCount(groupId)
+	return repository.Where("GroupId = ?", groupId).Count()
 }
 
 // GitCount 使用Git的数量
 func (repository projectRepository) GitCount(gitId int) int64 {
-	return projectAgent.GitCount(gitId)
+	return repository.Where("GitId = ?", gitId).Count()
 }
 
 // Add 添加项目
 func (repository projectRepository) Add(do project.DomainObject) int {
-	po := mapper.Single[projectAgent.PO](do)
-	return projectAgent.Add(po)
+	po := mapper.Single[model.ProjectPO](do)
+	repository.Insert(&po)
+	return po.Id
 }
 
 // Update 修改项目
-func (repository projectRepository) Update(id int, do project.DomainObject) {
-	po := mapper.Single[projectAgent.PO](do)
-	projectAgent.Update(id, po)
+func (repository projectRepository) Update(id int, do project.DomainObject, args ...interface{}) {
+	po := mapper.Single[model.ProjectPO](do)
+	repository.Where("Id = ?", id).Select(args).Update(po)
+}
+
+// UpdateYamlId 修改yaml脚本ID
+func (repository projectRepository) UpdateYamlId(id int, deploymentId int, serviceId int, ingressId int, configId int) {
+	repository.Where("Id = ?", id).Select("K8STplDeployment", "K8STplService", "K8STplIngress", "K8STplConfig").Update(model.ProjectPO{
+		K8STplDeployment: deploymentId,
+		K8STplService:    serviceId,
+		K8STplIngress:    ingressId,
+		K8STplConfig:     configId,
+	})
 }
 
 // UpdateDockerVer 修改镜像版本
 func (repository projectRepository) UpdateDockerVer(id int, dockerVer string) {
-	projectAgent.UpdateDockerVer(id, dockerVer)
+	repository.Where("Id = ?", id).UpdateValue("DockerVer", dockerVer)
 }
 
 // UpdateClusterVer 修改集群的镜像版本
 func (repository projectRepository) UpdateClusterVer(id int, dicClusterVer map[int]*domain.ClusterVerVO) {
-	projectAgent.UpdateClusterVer(id, dicClusterVer)
+	repository.Where("Id = ?", id).UpdateValue("ClusterVer", dicClusterVer)
 }
 
 // Delete 删除项目
 func (repository projectRepository) Delete(id int) {
-	projectAgent.Delete(id)
+	repository.Where("Id = ?", id).Delete()
 }

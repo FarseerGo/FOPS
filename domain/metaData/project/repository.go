@@ -20,7 +20,9 @@ type Repository interface {
 	// Add 添加项目
 	Add(do DomainObject) int
 	// Update 修改项目
-	Update(id int, do DomainObject)
+	Update(id int, do DomainObject, args ...interface{})
+	// UpdateYamlId 修改yaml脚本ID
+	UpdateYamlId(id int, deploymentId int, serviceId int, ingressId int, configId int)
 	// UpdateDockerVer 修改镜像版本
 	UpdateDockerVer(id int, dockerVer string)
 	// UpdateClusterVer 修改集群的镜像版本

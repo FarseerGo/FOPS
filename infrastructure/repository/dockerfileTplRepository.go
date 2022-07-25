@@ -2,49 +2,54 @@ package repository
 
 import (
 	"fops/domain/metaData/dockerfileTpl"
-	"fops/infrastructure/repository/agent/dockerfileTplAgent"
+	"fops/infrastructure/repository/context"
+	"fops/infrastructure/repository/model"
 	"fs/core/container"
+	"fs/data"
 	"fs/mapper"
 )
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() dockerfileTpl.Repository { return &dockerfileTplRepository{} })
+	_ = container.Register(func() dockerfileTpl.Repository {
+		return &dockerfileTplRepository{data.Init[context.MysqlContext]().DockerfileTpl}
+	})
 }
 
 type dockerfileTplRepository struct {
+	data.TableSet[model.DockerfileTplPO]
 }
 
 // ToList Dockerfile模板列表
 func (repository dockerfileTplRepository) ToList() []dockerfileTpl.DomainObject {
-	lstPO := dockerfileTplAgent.ToList()
+	lstPO := repository.ToList()
 	return mapper.Array[dockerfileTpl.DomainObject](lstPO)
 }
 
 // ToInfo Dockerfile模板信息
 func (repository dockerfileTplRepository) ToInfo(id int) dockerfileTpl.DomainObject {
-	po := dockerfileTplAgent.ToInfo(id)
+	po := repository.Where("Id = ?", id).ToEntity()
 	return mapper.Single[dockerfileTpl.DomainObject](po)
 }
 
-// Count Dockerfile模板数量
-func (repository dockerfileTplRepository) Count() int64 {
-	return dockerfileTplAgent.Count()
-}
+//// Count Dockerfile模板数量
+//func (repository dockerfileTplRepository) Count() int64 {
+//	return repository.Count()
+//}
 
 // Add 添加Dockerfile模板
 func (repository dockerfileTplRepository) Add(do dockerfileTpl.DomainObject) {
-	po := mapper.Single[dockerfileTplAgent.PO](do)
-	dockerfileTplAgent.Add(po)
+	po := mapper.Single[model.DockerfileTplPO](do)
+	repository.Insert(&po)
 }
 
 // Update 修改Dockerfile模板
 func (repository dockerfileTplRepository) Update(id int, do dockerfileTpl.DomainObject) {
-	po := mapper.Single[dockerfileTplAgent.PO](do)
-	dockerfileTplAgent.Update(id, po)
+	po := mapper.Single[model.DockerfileTplPO](do)
+	repository.Where("Id = ?", id).Update(po)
 }
 
 // Delete 删除Dockerfile模板
 func (repository dockerfileTplRepository) Delete(id int) {
-	dockerfileTplAgent.Delete(id)
+	repository.Where("Id = ?", id).Delete()
 }

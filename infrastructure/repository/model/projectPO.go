@@ -1,4 +1,4 @@
-package projectAgent
+package model
 
 import (
 	domain "fops/domain/_"
@@ -6,7 +6,7 @@ import (
 	"fops/domain/_/eumK8SControllers"
 )
 
-type PO struct {
+type ProjectPO struct {
 	Id int `gorm:"primaryKey"`
 
 	// 项目名称

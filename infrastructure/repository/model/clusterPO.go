@@ -1,8 +1,8 @@
-package clusterAgent
+package model
 
 import "fops/domain/_/eumRuntimeEnv"
 
-type PO struct {
+type ClusterPO struct {
 	Id int `gorm:"primaryKey"`
 	// 集群名称
 	Name string

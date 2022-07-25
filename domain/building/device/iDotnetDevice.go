@@ -1,5 +1,7 @@
 package device
 
+import "fops/domain/building/build/vo"
+
 type IDotnetDevice interface {
 	// GetReleasePath 获取编译保存的目录地址
 	GetReleasePath(projectName string) string

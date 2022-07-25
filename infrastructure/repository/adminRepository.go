@@ -2,8 +2,8 @@ package repository
 
 import (
 	"fops/domain/security/admin"
-	"fops/infrastructure/repository/agent/adminAgent"
 	"fops/infrastructure/repository/context"
+	"fops/infrastructure/repository/model"
 	"fs/core/container"
 	"fs/data"
 	"fs/mapper"
@@ -19,7 +19,7 @@ func init() {
 }
 
 type adminRepository struct {
-	data.TableSet[adminAgent.PO]
+	data.TableSet[model.AdminPO]
 }
 
 // IsExists 管理员是否存在
@@ -34,41 +34,41 @@ func (repository adminRepository) IsExistsWithoutSelf(adminName string, adminId 
 
 // Add 添加管理员
 func (repository adminRepository) Add(do admin.DomainObject) int {
-	po := mapper.Single[adminAgent.PO](do)
+	po := mapper.Single[model.AdminPO](do)
 	repository.Insert(&po)
 	return po.Id
 }
 
 // Update 修改管理员
 func (repository adminRepository) Update(id int, do admin.DomainObject) {
-	po := mapper.Single[adminAgent.PO](do)
-	repository.DbContext.Admin.Update(id, po)
+	po := mapper.Single[model.AdminPO](do)
+	repository.Where("Id = ?", id).Update(po)
 }
 
 // ToList Admin列表
 func (repository adminRepository) ToList() []admin.DomainObject {
-	lst := repository.DbContext.Admin.ToList()
+	lst := repository.Order("Id desc").ToList()
 	return mapper.Array[admin.DomainObject](lst)
 }
 
 // ToInfo Admin信息
 func (repository adminRepository) ToInfo(id int) admin.DomainObject {
-	po := repository.DbContext.Admin.ToInfo(id)
+	po := repository.Where("Id = ?", id).ToEntity()
 	return mapper.Single[admin.DomainObject](po)
 }
 
 // ToInfoByUsername Admin信息
-func (repository adminRepository) ToInfoByUsername(username string, pwd string) admin.DomainObject {
-	po := repository.DbContext.Admin.ToInfoByUserName(username, pwd)
+func (repository adminRepository) ToInfoByUsername(userName string, pwd string) admin.DomainObject {
+	po := repository.Where("UserName = ? && UserPwd = ?", userName, pwd).ToEntity()
 	return mapper.Single[admin.DomainObject](po)
 }
 
-// Count Admin数量
-func (repository adminRepository) Count() int64 {
-	return repository.DbContext.Admin.Count()
-}
+//// Count Admin数量
+//func (repository adminRepository) Count() int64 {
+//	return repository.Count()
+//}
 
 // Delete 删除管理员
 func (repository adminRepository) Delete(id int) {
-	repository.DbContext.Admin.Delete(id)
+	repository.Where("Id = ?", id).Delete()
 }

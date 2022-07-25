@@ -1,6 +1,6 @@
-package containerLogAgent
+package model
 
-type PO struct {
+type ContainerLogPO struct {
 	Id int `gorm:"primaryKey"`
 	// 应用名称
 	//[Keyword]

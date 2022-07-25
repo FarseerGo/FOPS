@@ -1,6 +1,6 @@
-package projectGroupAgent
+package model
 
-type PO struct {
+type ProjectGroupPO struct {
 	Id int `gorm:"primaryKey"`
 	// 集群ID
 	//[Field(Name = "cluster_ids", StorageType = EumStorageType.Array)]

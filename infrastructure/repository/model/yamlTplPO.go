@@ -1,8 +1,8 @@
-package yamlTplAgent
+package model
 
 import "fops/domain/_/eumK8SKind"
 
-type PO struct {
+type YamlTplPO struct {
 	Id int `gorm:"primaryKey"`
 	// k8s类型
 	K8SKindType eumK8SKind.Enum

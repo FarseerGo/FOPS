@@ -1,6 +1,6 @@
-package dockerfileTplAgent
+package model
 
-type PO struct {
+type DockerfileTplPO struct {
 	Id int `gorm:"primaryKey"`
 	// 模板名称
 	Name string

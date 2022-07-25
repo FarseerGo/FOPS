@@ -2,8 +2,8 @@ package repository
 
 import (
 	"fops/domain/k8s/pod"
-	"fops/infrastructure/repository/agent/projectAgent"
-	"fops/infrastructure/repository/agent/yamlTplAgent"
+	"fops/domain/k8s/yamlTpl"
+	"fops/domain/metaData/project"
 	"fs/core/container"
 	"fs/mapper"
 )
@@ -17,8 +17,8 @@ type podRepository struct {
 }
 
 func (repository podRepository) ToListByGroupId(groupId int) []pod.DomainObject {
-	lstYaml := mapper.Array[pod.YamlTplVO](yamlTplAgent.ToList())
-	lstProject := projectAgent.ToListByGroupId(groupId)
+	lstYaml := mapper.Array[pod.YamlTplVO](container.Resolve[yamlTpl.Repository]().ToList())
+	lstProject := container.Resolve[project.Repository]().ToListByGroupId(groupId)
 	var lst []pod.DomainObject
 
 	for _, projectPO := range lstProject {
@@ -30,8 +30,8 @@ func (repository podRepository) ToListByGroupId(groupId int) []pod.DomainObject 
 }
 
 func (repository podRepository) ToList() []pod.DomainObject {
-	lstYaml := mapper.Array[pod.YamlTplVO](yamlTplAgent.ToList())
-	lstProject := projectAgent.ToList()
+	lstYaml := mapper.Array[pod.YamlTplVO](container.Resolve[yamlTpl.Repository]().ToList())
+	lstProject := container.Resolve[project.Repository]().ToList()
 	var lst []pod.DomainObject
 
 	for _, projectPO := range lstProject {
@@ -43,10 +43,5 @@ func (repository podRepository) ToList() []pod.DomainObject {
 }
 
 func (repository podRepository) Update(pod pod.DomainObject) {
-	projectAgent.Update(pod.Id, projectAgent.PO{
-		K8STplDeployment: pod.K8STplDeployment.Id,
-		K8STplService:    pod.K8STplService.Id,
-		K8STplIngress:    pod.K8STplIngress.Id,
-		K8STplConfig:     pod.K8STplConfig.Id,
-	}, "K8STplDeployment", "K8STplService", "K8STplIngress", "K8STplConfig")
+	container.Resolve[project.Repository]().UpdateYamlId(pod.Id, pod.K8STplDeployment.Id, pod.K8STplService.Id, pod.K8STplIngress.Id, pod.K8STplConfig.Id)
 }

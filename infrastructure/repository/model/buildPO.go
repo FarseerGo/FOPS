@@ -1,11 +1,11 @@
-package buildAgent
+package model
 
 import (
 	"fops/domain/_/eumBuildStatus"
 	"time"
 )
 
-type PO struct {
+type BuildPO struct {
 	Id int `gorm:"primaryKey"`
 	// 项目ID
 	ProjectId int
