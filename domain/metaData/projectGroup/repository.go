@@ -7,7 +7,7 @@ type Repository interface {
 	// ToInfo 项目组信息
 	ToInfo(id int) *DomainObject
 	// Count 项目组数量
-	Count() int
+	Count() int64
 	// Add 添加项目组
 	Add(vo DomainObject) int
 	// Update 修改项目组

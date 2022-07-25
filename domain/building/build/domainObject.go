@@ -3,6 +3,7 @@ package build
 import (
 	"fmt"
 	"fops/domain/_/eumBuildStatus"
+	"fops/domain/building/build/vo"
 	"fs"
 	"fs/utils/directory"
 	"strconv"
@@ -44,7 +45,7 @@ func NewDO() DomainObject {
 	return DomainObject{}
 }
 
-// NewDO 添加新的构建
+// NewDO1 NewDO 添加新的构建
 func NewDO1(buildNumber int, project vo.ProjectVO, gits []vo.GitVO, docker vo.DockerVO, cluster vo.ClusterVO) DomainObject {
 	return DomainObject{
 		BuildNumber:   buildNumber + 1,

@@ -6,11 +6,11 @@ type Repository interface {
 	// ToInfo Yaml模板信息
 	ToInfo(id int) DomainObject
 	// Count Yaml模板数量
-	Count() int
+	Count() int64
 	// Add 添加Yaml模板
-	Add(yamlTpl DomainObject) int
+	Add(do DomainObject) int
 	// Update 修改Yaml模板
-	Update(id int, yamlTpl DomainObject)
+	Update(id int, do DomainObject)
 	// Delete 删除Yaml模板
 	Delete(id int)
 }

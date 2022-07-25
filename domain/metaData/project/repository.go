@@ -12,15 +12,15 @@ type Repository interface {
 	// ToInfo 项目信息
 	ToInfo(id int) DomainObject
 	// Count 项目数量
-	Count() int
+	Count() int64
 	// GroupCount 使用项目组的数量
-	GroupCount(groupId int) int
+	GroupCount(groupId int) int64
 	// GitCount 使用Git的数量
-	GitCount(gitId int) int
+	GitCount(gitId int) int64
 	// Add 添加项目
-	Add(project DomainObject) int
+	Add(do DomainObject) int
 	// Update 修改项目
-	Update(id int, project DomainObject)
+	Update(id int, do DomainObject)
 	// UpdateDockerVer 修改镜像版本
 	UpdateDockerVer(id int, dockerVer string)
 	// UpdateClusterVer 修改集群的镜像版本

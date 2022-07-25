@@ -6,11 +6,11 @@ type Repository interface {
 	// ToInfo 集群信息
 	ToInfo(id int) DomainObject
 	// Count 集群数量
-	Count() int
+	Count() int64
 	// Add 添加集群
-	Add(cluster DomainObject) int
+	Add(do DomainObject) int
 	// Update 修改集群
-	Update(id int, cluster DomainObject)
+	Update(id int, do DomainObject)
 	// Delete 删除集群
 	Delete(id int)
 }
