@@ -47,8 +47,8 @@ func Add(po PO) int {
 }
 
 // Update 修改项目
-func Update(id int, po PO) {
-	context.NewContext().Project.Where("Id = ?", id).Update(po)
+func Update(id int, po PO, args ...any) {
+	context.NewContext().Project.Where("Id = ?", id).Select(args).Update(po)
 }
 
 // UpdateDockerVer 修改项目

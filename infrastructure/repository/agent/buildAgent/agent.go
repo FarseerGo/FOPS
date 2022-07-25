@@ -19,8 +19,8 @@ func Add(po PO) int {
 }
 
 // Update 修改任务
-func Update(id int, po PO) int64 {
-	return context.NewContext().Build.Where("Id = ?", id).Update(po)
+func Update(id int, po PO, args ...interface{}) int64 {
+	return context.NewContext().Build.Where("Id = ?", id).Select(args).Update(po)
 }
 
 // GetBuildId 获取构建任务的主键

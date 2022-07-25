@@ -4,50 +4,23 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="完成数据库的agent">
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/adminRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/buildRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/clusterRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/containerLogRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/dockerHubRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/dockerfileTplRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/gitRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/podRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/projectRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/repository/yamlTplRepository.go" afterDir="false" />
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="完成仓储">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/build/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/domainObject.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/build/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/build/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/building/device/iGitDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iGitDevice.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/k8s/cluster/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/k8s/cluster/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/k8s/yamlTpl/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/k8s/yamlTpl/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/metaData/dockerHub/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/dockerHub/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/metaData/dockerfileTpl/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/dockerfileTpl/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/metaData/git/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/git/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/metaData/project/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/project/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/metaData/projectGroup/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/metaData/projectGroup/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/security/admin/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/security/admin/repository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/admin/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/admin/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/build/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/build/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/cluster/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/clusterAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/cluster/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/clusterAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/containerLog/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/containerLogAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/containerLog/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/containerLogAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHub/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHubAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHub/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerHubAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTpl/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTplAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTpl/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/dockerfileTplAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/git/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/gitAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/git/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/gitAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/project/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/project/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroup/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroupAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroup/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectGroupAgent/po.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTpl/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTplAgent/agent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTpl/po.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/yamlTplAgent/po.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/cluster/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/cluster/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/dockerfileTpl/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/dockerfileTpl/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/project/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/project/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroup/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroup/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/building/device/iCopyToDistDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iCopyToDistDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/building/device/iDockerDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iDockerDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/building/device/iKubectlDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iKubectlDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/building/device/iShellDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/building/device/iShellDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/adminRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/adminRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/adminAgent/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/buildAgent/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/agent/projectAgent/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/buildRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/buildRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/context/mysqlContext.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/context/mysqlContext.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/repository/podRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/podRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/repository/projectGroupRepository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +68,7 @@
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "ShowUsagesActions.previewPropertyKey": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/steden/Desktop/code/project/FOPS.GO/infrastructure/repository/agent/containerLog",
@@ -234,7 +208,8 @@
     <MESSAGE value="完成事件订阅" />
     <MESSAGE value="实现数据库的配置" />
     <MESSAGE value="完成数据库的agent" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成数据库的agent" />
+    <MESSAGE value="完成仓储" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成仓储" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -249,57 +224,57 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>35</line>
+          <line>39</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>76</line>
+          <line>80</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>81</line>
+          <line>85</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>86</line>
+          <line>90</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>101</line>
+          <line>105</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>115</line>
+          <line>119</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>121</line>
+          <line>125</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>127</line>
+          <line>131</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>133</line>
+          <line>137</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>142</line>
+          <line>146</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>146</line>
+          <line>150</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
@@ -309,27 +284,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>151</line>
+          <line>155</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>163</line>
+          <line>167</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>187</line>
+          <line>191</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>199</line>
+          <line>203</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/../Farseer.Go/src/fs/data/tableSet.go</url>
-          <line>211</line>
+          <line>215</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>

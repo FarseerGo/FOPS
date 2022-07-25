@@ -48,5 +48,5 @@ func (repository podRepository) Update(pod pod.DomainObject) {
 		K8STplService:    pod.K8STplService.Id,
 		K8STplIngress:    pod.K8STplIngress.Id,
 		K8STplConfig:     pod.K8STplConfig.Id,
-	})
+	}, "K8STplDeployment", "K8STplService", "K8STplIngress", "K8STplConfig")
 }

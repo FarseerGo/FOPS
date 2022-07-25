@@ -3,6 +3,7 @@ package device
 import (
 	"context"
 	"fops/domain/_/eumK8SControllers"
+	"fops/domain/building/build/vo"
 )
 
 type IKubectlDevice interface {

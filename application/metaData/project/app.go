@@ -43,12 +43,12 @@ func (app *app) Update(dto Dto) {
 }
 
 // GitCount 使用Git的数量
-func (app *app) GitCount(id int) int {
+func (app *app) GitCount(id int) int64 {
 	return app.repository.GitCount(id)
 }
 
 // Count 项目数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }
 
@@ -59,7 +59,7 @@ func (app *app) ToAppList() []Dto {
 }
 
 // GroupCount 使用项目组的数量
-func (app *app) GroupCount(id int) int {
+func (app *app) GroupCount(id int) int64 {
 	return app.repository.GroupCount(id)
 }
 

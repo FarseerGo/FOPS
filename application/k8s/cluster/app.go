@@ -41,6 +41,6 @@ func (app *app) ToInfo(id int) Dto {
 }
 
 // Count 集群数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }

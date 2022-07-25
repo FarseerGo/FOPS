@@ -1,51 +1,55 @@
 package adminAgent
 
 import (
-	"fops/infrastructure/repository/context"
+	"fs/data"
 )
 
+type TableSet struct {
+	data.TableSet[PO]
+}
+
 // ToList Admin列表
-func ToList() []PO {
-	return context.NewContext().Admin.Order("Id desc").ToList()
+func (set TableSet) ToList() []PO {
+	return set.Order("Id desc").ToList()
 }
 
 // ToInfo Admin信息
-func ToInfo(id int) PO {
-	return context.NewContext().Admin.Where("Id = ?", id).ToEntity()
+func (set TableSet) ToInfo(id int) PO {
+	return set.Where("Id = ?", id).ToEntity()
 }
 
 // ToInfoByUserName Admin信息
-func ToInfoByUserName(userName string, pwd string) PO {
-	return context.NewContext().Admin.Where("UserName = ? && UserPwd = ?", userName, pwd).ToEntity()
+func (set TableSet) ToInfoByUserName(userName string, pwd string) PO {
+	return set.Where("UserName = ? && UserPwd = ?", userName, pwd).ToEntity()
 }
 
 // Count Admin数量
-func Count() int64 {
-	return context.NewContext().Admin.Count()
+func (set TableSet) Count() int64 {
+	return set.Count()
 }
 
 // IsExists 管理员是否存在
-func IsExists(adminName string) bool {
-	return context.NewContext().Admin.Where("UserName = ?", adminName).IsExists()
+func (set TableSet) IsExists(adminName string) bool {
+	return set.Where("UserName = ?", adminName).IsExists()
 }
 
 // IsExistsByAdminId 管理员是否存在
-func IsExistsByAdminId(adminName string, adminId int) bool {
-	return context.NewContext().Admin.Where("UserName = ? and Id <> ?", adminName, adminId).IsExists()
+func (set TableSet) IsExistsByAdminId(adminName string, adminId int) bool {
+	return set.Where("UserName = ? and Id <> ?", adminName, adminId).IsExists()
 }
 
 // Add 添加管理员
-func Add(po PO) int {
-	context.NewContext().Admin.Insert(&po)
+func (set TableSet) Add(po PO) int {
+	set.Insert(&po)
 	return po.Id
 }
 
 // Update 修改管理员
-func Update(id int, po PO) {
-	context.NewContext().Admin.Where("Id = ?", id).Update(po)
+func (set TableSet) Update(id int, po PO) {
+	set.Where("Id = ?", id).Update(po)
 }
 
 // Delete 删除管理员
-func Delete(id int) {
-	context.NewContext().Admin.Where("Id = ?", id).Delete()
+func (set TableSet) Delete(id int) {
+	set.Where("Id = ?", id).Delete()
 }

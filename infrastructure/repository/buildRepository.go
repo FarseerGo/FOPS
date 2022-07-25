@@ -40,15 +40,6 @@ func (repository buildRepository) Add(do build.DomainObject) int {
 	return buildAgent.Add(po)
 }
 
-// Cancel 主动取消任务
-func (repository buildRepository) Cancel(id int) {
-	buildAgent.Update(id, buildAgent.PO{
-		Status:    eumBuildStatus.Finish,
-		IsSuccess: false,
-		FinishAt:  time.Now(),
-	})
-}
-
 // Count 当前构建的队列数量
 func (repository buildRepository) Count() int64 {
 	return buildAgent.Count()
@@ -117,7 +108,7 @@ func (repository buildRepository) SetBuilding(id int) int64 {
 	return buildAgent.Update(id, buildAgent.PO{
 		Status:   eumBuildStatus.Building,
 		CreateAt: time.Now(),
-	})
+	}, "Status", "CreateAt")
 }
 
 // Success 任务完成
@@ -126,7 +117,16 @@ func (repository buildRepository) Success(id int) {
 		Status:    eumBuildStatus.Finish,
 		IsSuccess: true,
 		FinishAt:  time.Now(),
-	})
+	}, "Status", "IsSuccess", "CreateAt")
+}
+
+// Cancel 主动取消任务
+func (repository buildRepository) Cancel(id int) {
+	buildAgent.Update(id, buildAgent.PO{
+		Status:    eumBuildStatus.Finish,
+		IsSuccess: false,
+		FinishAt:  time.Now(),
+	}, "Status", "IsSuccess", "CreateAt")
 }
 
 // GetStatus 获取构建状态

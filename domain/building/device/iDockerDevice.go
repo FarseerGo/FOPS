@@ -2,6 +2,7 @@ package device
 
 import (
 	"context"
+	"fops/domain/building/build/vo"
 )
 
 type IDockerDevice interface {
