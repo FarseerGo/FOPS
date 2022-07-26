@@ -21,7 +21,7 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() build.Repository { return &buildRepository{data.Init[context.MysqlContext]().Build} })
+	_ = container.Register(func() build.Repository { return &buildRepository{data.Init[context.MysqlContext]("fops").Build} })
 }
 
 type buildRepository struct {

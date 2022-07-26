@@ -1,5 +1,5 @@
 Database:
-  fops: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,root:steden@123@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
+  fops: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:steden@123@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
 FSS:
   本地: "http://fss:888"
 ElasticSearch:

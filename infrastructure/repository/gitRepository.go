@@ -12,7 +12,7 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() git.Repository { return &gitRepository{data.Init[context.MysqlContext]().Git} })
+	_ = container.Register(func() git.Repository { return &gitRepository{data.Init[context.MysqlContext]("fops").Git} })
 }
 
 type gitRepository struct {

@@ -11,7 +11,7 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() yamlTpl.Repository { return &yamlTplRepository{data.Init[context.MysqlContext]().YamlTpl} })
+	_ = container.Register(func() yamlTpl.Repository { return &yamlTplRepository{data.Init[context.MysqlContext]("fops").YamlTpl} })
 }
 
 type yamlTplRepository struct {

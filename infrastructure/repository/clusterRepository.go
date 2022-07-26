@@ -11,7 +11,7 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() cluster.Repository { return &clusterRepository{data.Init[context.MysqlContext]().Cluster} })
+	_ = container.Register(func() cluster.Repository { return &clusterRepository{data.Init[context.MysqlContext]("fops").Cluster} })
 }
 
 type clusterRepository struct {

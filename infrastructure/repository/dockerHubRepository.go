@@ -11,7 +11,9 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() dockerHub.Repository { return &dockerHubRepository{data.Init[context.MysqlContext]().DockerHub} })
+	_ = container.Register(func() dockerHub.Repository {
+		return &dockerHubRepository{data.Init[context.MysqlContext]("fops").DockerHub}
+	})
 }
 
 type dockerHubRepository struct {

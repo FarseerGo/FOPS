@@ -12,7 +12,7 @@ import (
 func init() {
 	// 注册项目组仓储
 	_ = container.Register(func() dockerfileTpl.Repository {
-		return &dockerfileTplRepository{data.Init[context.MysqlContext]().DockerfileTpl}
+		return &dockerfileTplRepository{data.Init[context.MysqlContext]("fops").DockerfileTpl}
 	})
 }
 

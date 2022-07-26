@@ -13,7 +13,7 @@ func init() {
 	// 注册项目组仓储
 	_ = container.Register(func() admin.Repository {
 		return &adminRepository{
-			data.Init[context.MysqlContext]().Admin,
+			data.Init[context.MysqlContext]("fops").Admin,
 		}
 	})
 }

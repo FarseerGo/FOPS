@@ -12,7 +12,7 @@ import (
 
 func init() {
 	// 注册项目组仓储
-	_ = container.Register(func() project.Repository { return &projectRepository{data.Init[context.MysqlContext]().Project} })
+	_ = container.Register(func() project.Repository { return &projectRepository{data.Init[context.MysqlContext]("fops").Project} })
 }
 
 type projectRepository struct {

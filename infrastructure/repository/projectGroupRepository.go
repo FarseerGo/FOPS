@@ -12,7 +12,7 @@ import (
 func init() {
 	// 注册项目组仓储
 	_ = container.Register(func() projectGroup.Repository {
-		return &projectGroupRepository{data.Init[context.MysqlContext]().ProjectGroup}
+		return &projectGroupRepository{data.Init[context.MysqlContext]("fops").ProjectGroup}
 	})
 }
 
