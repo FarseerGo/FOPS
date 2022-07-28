@@ -1,4 +1,4 @@
-package device
+package devicer
 
 type ILogWriteDevice interface {
 	// View 查看日志

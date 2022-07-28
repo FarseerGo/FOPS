@@ -2,8 +2,8 @@ package yaml
 
 import (
 	"fops/domain/k8s/yamlTpl"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {
@@ -41,6 +41,6 @@ func (app *app) ToInfo(id int) Dto {
 }
 
 // Count Yaml模板数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }

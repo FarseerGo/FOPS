@@ -2,8 +2,8 @@ package domainEvent
 
 import (
 	"fops/domain/building/build/event"
-	"fs/eventBus"
-	"fs/utils/parse"
+	"github.com/farseernet/farseer.go/eventBus"
+	"github.com/farseernet/farseer.go/utils/parse"
 )
 
 func init() {

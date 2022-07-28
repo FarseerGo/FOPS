@@ -1,6 +1,6 @@
 package event
 
-import "fs/eventBus"
+import "github.com/farseernet/farseer.go/eventBus"
 
 // BuildFinishedEventName 事件名称
 const BuildFinishedEventName = "BuildFinishedEvent"

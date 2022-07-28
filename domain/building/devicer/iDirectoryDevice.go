@@ -1,4 +1,4 @@
-package device
+package devicer
 
 type IDirectoryDevice interface {
 	// Check 检查目录

@@ -3,8 +3,8 @@ package repository
 import (
 	"fops/domain/appLog/containerLog"
 	"fops/infrastructure/repository/model"
-	"fs/core/container"
-	"fs/data"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/data"
 )
 
 func init() {

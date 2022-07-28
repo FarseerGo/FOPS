@@ -2,22 +2,23 @@ package git
 
 import (
 	"fops/domain/building/build/vo"
-	"fops/domain/building/device"
+	"fops/domain/building/devicer"
 	"fops/domain/metaData/git"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
+
 	"time"
 )
 
 type app struct {
 	repository git.Repository
-	device     device.IGitDevice
+	device     devicer.IGitDevice
 }
 
 func NewApp() *app {
 	return &app{
 		repository: container.Resolve[git.Repository](),
-		device:     container.Resolve[device.IGitDevice](),
+		device:     container.Resolve[devicer.IGitDevice](),
 	}
 }
 
@@ -56,7 +57,7 @@ func (app *app) Delete(id int) {
 }
 
 // Count Git数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }
 

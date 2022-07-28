@@ -4,18 +4,19 @@ import (
 	"context"
 	"fops/domain/_/eumBuildStatus"
 	"fops/domain/building/build"
-	"fops/domain/building/device"
-	"fs/core/container"
+	"fops/domain/building/build/event"
+	"fops/domain/building/devicer"
+	"github.com/farseernet/farseer.go/core/container"
 )
 
 type BuildService struct {
 	repository       build.Repository
-	logWriteDevice   device.ILogWriteDevice
-	dockerDevice     device.IDockerDevice
-	directoryDevice  device.IDirectoryDevice
-	gitDevice        device.IGitDevice
-	kubectlDevice    device.IKubectlDevice
-	copyToDistDevice device.ICopyToDistDevice
+	logWriteDevice   devicer.ILogWriteDevice
+	dockerDevice     devicer.IDockerDevice
+	directoryDevice  devicer.IDirectoryDevice
+	gitDevice        devicer.IGitDevice
+	kubectlDevice    devicer.IKubectlDevice
+	copyToDistDevice devicer.ICopyToDistDevice
 	progress         chan string
 	ctx              context.Context
 	cancel           context.CancelFunc
@@ -25,12 +26,12 @@ func NewBuildService() *BuildService {
 	ctx, cancel := context.WithCancel(context.Background())
 	return &BuildService{
 		repository:       container.Resolve[build.Repository](),
-		logWriteDevice:   container.Resolve[device.ILogWriteDevice](),
-		dockerDevice:     container.Resolve[device.IDockerDevice](),
-		directoryDevice:  container.Resolve[device.IDirectoryDevice](),
-		gitDevice:        container.Resolve[device.IGitDevice](),
-		kubectlDevice:    container.Resolve[device.IKubectlDevice](),
-		copyToDistDevice: container.Resolve[device.ICopyToDistDevice](),
+		logWriteDevice:   container.Resolve[devicer.ILogWriteDevice](),
+		dockerDevice:     container.Resolve[devicer.IDockerDevice](),
+		directoryDevice:  container.Resolve[devicer.IDirectoryDevice](),
+		gitDevice:        container.Resolve[devicer.IGitDevice](),
+		kubectlDevice:    container.Resolve[devicer.IKubectlDevice](),
+		copyToDistDevice: container.Resolve[devicer.ICopyToDistDevice](),
 		ctx:              ctx,
 		cancel:           cancel,
 	}
@@ -109,7 +110,7 @@ func (service *BuildService) fail(buildDo build.DomainObject, progress chan stri
 	progress <- "执行失败，退出构建。"
 
 	// 发布事件
-	event.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: false}.PublishEvent()
+	event.BuildFinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: false}.PublishEvent()
 
 	service.repository.Cancel(buildDo.Id)
 }
@@ -120,7 +121,7 @@ func (service *BuildService) success(buildDo build.DomainObject, progress chan s
 	progress <- "构建完成。"
 
 	// 发布事件
-	event.FinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: true}.PublishEvent()
+	event.BuildFinishedEvent{ProjectId: buildDo.Project.Id, BuildId: buildDo.Id, ClusterId: buildDo.Cluster.Id, IsSuccess: true}.PublishEvent()
 
 	service.repository.Success(buildDo.Id)
 }

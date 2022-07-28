@@ -2,8 +2,8 @@ package project
 
 import (
 	"fops/domain/metaData/project"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

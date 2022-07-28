@@ -3,8 +3,8 @@ package domainEvent
 import (
 	"fops/domain/building/build/event"
 	"fops/domain/metaData/git"
-	"fs/core/container"
-	"fs/eventBus"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/eventBus"
 	"time"
 )
 

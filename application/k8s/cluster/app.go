@@ -2,8 +2,8 @@ package cluster
 
 import (
 	"fops/domain/k8s/cluster"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

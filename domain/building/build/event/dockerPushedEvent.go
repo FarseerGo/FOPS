@@ -1,6 +1,6 @@
 package event
 
-import "fs/eventBus"
+import "github.com/farseernet/farseer.go/eventBus"
 
 const DockerPushedEventName = "DockerPushedEvent"
 

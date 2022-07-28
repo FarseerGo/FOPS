@@ -3,16 +3,16 @@ package task
 import (
 	"fops/application/fss/eumTaskType"
 	"fops/domain/fss"
-	"fs/core/container"
+	"github.com/farseernet/farseer.go/core/container"
 )
 
 type app struct {
-	repository fss.Repository
+	repository fss.IFssDevice
 }
 
 func NewApp() *app {
 	return &app{
-		repository: container.Resolve[fss.Repository](),
+		repository: container.Resolve[fss.IFssDevice](),
 	}
 }
 

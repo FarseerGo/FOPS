@@ -2,8 +2,8 @@ package queue
 
 import (
 	"fmt"
-	"fs/linq"
-	"fs/mq/queue"
+	"github.com/farseernet/farseer.go/linq"
+	"github.com/farseernet/farseer.go/mq/queue"
 )
 
 func init() {

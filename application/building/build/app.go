@@ -7,8 +7,9 @@ import (
 	"fops/domain/building/build/vo"
 	"fops/domain/k8s/cluster"
 	"fops/domain/metaData/project"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
+
 	"strconv"
 )
 
@@ -52,7 +53,7 @@ func (app *app) ToBuildingList(pageSize int, pageIndex int) []Dto {
 }
 
 // Count 当前构建的队列数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }
 

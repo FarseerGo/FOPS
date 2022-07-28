@@ -4,8 +4,8 @@ import (
 	"fops/domain/k8s/pod"
 	"fops/domain/k8s/yamlTpl"
 	"fops/domain/metaData/project"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 func init() {

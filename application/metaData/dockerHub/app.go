@@ -2,8 +2,8 @@ package dockerHub
 
 import (
 	"fops/domain/metaData/dockerHub"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {
@@ -41,6 +41,6 @@ func (app *app) ToInfo(id int) Dto {
 }
 
 // Count DockerHub数量
-func (app *app) Count() int {
+func (app *app) Count() int64 {
 	return app.repository.Count()
 }

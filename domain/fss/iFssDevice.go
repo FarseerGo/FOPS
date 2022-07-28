@@ -7,10 +7,10 @@ import (
 	"fops/application/fss/task"
 	"fops/application/fss/taskgroup"
 	"fops/domain/_/eumLogLevel"
-	"fs/core"
+	"github.com/farseernet/farseer.go/core"
 )
 
-type Repository interface {
+type IFssDevice interface {
 	// GetClientList 取出全局客户端列表
 	GetClientList() []client.Dto
 	// GetClientCount 取出全局客户端数量

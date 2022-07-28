@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	_ "fops/infrastructure/repository"
-	"fs"
-	"fs/configure"
+	"github.com/farseernet/farseer.go/configure"
+	"github.com/farseernet/farseer.go/init"
 )
 
 func main() {
-	fs.Run("FOPS")
+	init.Run("FOPS")
 	fmt.Println(configure.GetString("Database.fops"))
 }

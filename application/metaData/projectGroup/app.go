@@ -2,8 +2,8 @@ package projectGroup
 
 import (
 	"fops/domain/metaData/projectGroup"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

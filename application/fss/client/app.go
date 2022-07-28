@@ -2,17 +2,17 @@ package client
 
 import (
 	"fops/domain/fss"
-	"fs/core/container"
-	"fs/linq"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
 )
 
 type app struct {
-	repository fss.Repository
+	repository fss.IFssDevice
 }
 
 func NewApp() *app {
 	return &app{
-		repository: container.Resolve[fss.Repository](),
+		repository: container.Resolve[fss.IFssDevice](),
 	}
 }
 

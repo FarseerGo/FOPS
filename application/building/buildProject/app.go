@@ -5,9 +5,9 @@ import (
 	"fops/domain/metaData/dockerfileTpl"
 	"fops/domain/metaData/project"
 	"fops/domain/metaData/projectGroup"
-	"fs/core/container"
-	"fs/linq"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

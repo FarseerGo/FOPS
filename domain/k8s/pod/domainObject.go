@@ -2,7 +2,8 @@ package pod
 
 import (
 	"fops/domain/_/eumK8SKind"
-	"fs/linq"
+	"github.com/farseernet/farseer.go/linq"
+
 	"strconv"
 	"strings"
 )

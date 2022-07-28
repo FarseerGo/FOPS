@@ -2,23 +2,24 @@ package kubectlSetYaml
 
 import (
 	"fops/application/k8s/cluster"
-	"fops/domain/building/device"
+	"fops/domain/building/devicer"
 	"fops/domain/k8s/pod"
 	"fops/domain/k8s/yamlTpl"
-	"fs/core/container"
-	"fs/linq"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
+
 	"strings"
 )
 
 type app struct {
 	repository    yamlTpl.Repository
-	kubectlDevice device.IKubectlDevice
+	kubectlDevice devicer.IKubectlDevice
 }
 
 func NewApp() *app {
 	return &app{
 		repository:    container.Resolve[yamlTpl.Repository](),
-		kubectlDevice: container.Resolve[device.IKubectlDevice](),
+		kubectlDevice: container.Resolve[devicer.IKubectlDevice](),
 	}
 }
 

@@ -4,9 +4,10 @@ import (
 	"fops/domain/metaData/git"
 	"fops/infrastructure/repository/context"
 	"fops/infrastructure/repository/model"
-	"fs/core/container"
-	"fs/data"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/data"
+	"github.com/farseernet/farseer.go/mapper"
+
 	"time"
 )
 

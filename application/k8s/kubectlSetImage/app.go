@@ -1,20 +1,20 @@
 package kubectlSetImage
 
 import (
-	"fops/domain/building/device"
+	"fops/domain/building/devicer"
 	"fops/domain/k8s/cluster"
 	"fops/domain/metaData/dockerHub"
 	"fops/domain/metaData/project"
-	"fs/core/container"
-	"fs/utils/parse"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/utils/parse"
 )
 
 type app struct {
 	clusterRepository   cluster.Repository
 	projectRepository   project.Repository
 	dockerHubRepository dockerHub.Repository
-	dockerDevice        device.IDockerDevice
-	kubectlDevice       device.IKubectlDevice
+	dockerDevice        devicer.IDockerDevice
+	kubectlDevice       devicer.IKubectlDevice
 }
 
 func NewApp() *app {
@@ -22,8 +22,8 @@ func NewApp() *app {
 		clusterRepository:   container.Resolve[cluster.Repository](),
 		projectRepository:   container.Resolve[project.Repository](),
 		dockerHubRepository: container.Resolve[dockerHub.Repository](),
-		dockerDevice:        container.Resolve[device.IDockerDevice](),
-		kubectlDevice:       container.Resolve[device.IKubectlDevice](),
+		dockerDevice:        container.Resolve[devicer.IDockerDevice](),
+		kubectlDevice:       container.Resolve[devicer.IKubectlDevice](),
 	}
 }
 

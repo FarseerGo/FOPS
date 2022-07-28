@@ -3,8 +3,8 @@ package pod
 import (
 	"fops/domain/k8s/pod"
 	"fops/domain/metaData/projectGroup"
-	"fs/core/container"
-	"fs/linq"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
 )
 
 type app struct {

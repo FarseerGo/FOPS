@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"fops/domain/_/eumBuildStatus"
 	"fops/domain/building/build/vo"
-	"fs"
-	"fs/utils/directory"
+	"github.com/farseernet/farseer.go/init"
+	"github.com/farseernet/farseer.go/utils/directory"
+
 	"strconv"
 	"strings"
 	"time"
@@ -53,7 +54,7 @@ func NewDO1(buildNumber int, project vo.ProjectVO, gits []vo.GitVO, docker vo.Do
 		IsSuccess:     false,
 		CreateAt:      time.Now(),
 		FinishAt:      time.Now(),
-		BuildServerId: fs.AppId,
+		BuildServerId: init.AppId,
 		Project:       project,
 		Gits:          gits,
 		Docker:        docker,
@@ -72,7 +73,7 @@ func NewDO2(buildNumber int, project vo.ProjectVO, cluster vo.ClusterVO) DomainO
 		IsSuccess:     false,
 		CreateAt:      time.Now(),
 		FinishAt:      time.Now(),
-		BuildServerId: fs.AppId,
+		BuildServerId: init.AppId,
 	}
 }
 
@@ -129,12 +130,12 @@ func (do *DomainObject) GenerateDockerfileContent() {
 	}
 
 	// 如果.net 应用，则自动实现csproj的递归复制并运行dotnet restore
-	var csproj = directory.GetFiles(do.Env.DistRoot, ".csproj", true)
+	var csproj = directory.GetFiles(vo.DistRoot, ".csproj", true)
 	if len(csproj) > 0 {
 		var lstCopyCmd []string
 
 		for _, file := range csproj {
-			filePath := file[len(do.Env.DistRoot):]
+			filePath := file[len(vo.DistRoot):]
 			fileDir := filePath[:strings.LastIndex(filePath, "/")+1]
 			cmd := fmt.Sprintf("COPY [\"%s\",\"%s\"]", filePath, fileDir)
 			lstCopyCmd = append(lstCopyCmd, cmd)

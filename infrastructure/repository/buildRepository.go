@@ -4,7 +4,7 @@ import (
 	"fops/domain/_/eumBuildStatus"
 	"fops/domain/building/build"
 	"fops/domain/building/build/vo"
-	"fops/domain/building/device"
+	"fops/domain/building/devicer"
 	"fops/domain/k8s/cluster"
 	"fops/domain/metaData/dockerHub"
 	"fops/domain/metaData/dockerfileTpl"
@@ -12,10 +12,10 @@ import (
 	"fops/domain/metaData/project"
 	"fops/infrastructure/repository/context"
 	"fops/infrastructure/repository/model"
-	"fs"
-	"fs/core/container"
-	"fs/data"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/data"
+	"github.com/farseernet/farseer.go/init"
+	"github.com/farseernet/farseer.go/mapper"
 	"time"
 )
 
@@ -75,7 +75,7 @@ func (repository buildRepository) ToInfo(id int) build.DomainObject {
 
 // GetUnBuildInfo 获取未构建的任务
 func (repository buildRepository) GetUnBuildInfo() build.DomainObject {
-	po := repository.Where("Status = ? and BuildServerId = ?", eumBuildStatus.None, fs.AppId).Asc("Id").ToEntity()
+	po := repository.Where("Status = ? and initdServerId = ?", eumBuildStatus.None, init.AppId).Asc("Id").ToEntity()
 	do := mapper.Single[build.DomainObject](po)
 
 	if do.Id > 0 {
@@ -95,7 +95,7 @@ func (repository buildRepository) GetUnBuildInfo() build.DomainObject {
 		lstGitPO := container.Resolve[git.Repository]().ToListByIds(lstGitIds)
 		lstGit := mapper.Array[vo.GitVO](lstGitPO)
 
-		gitDevice := container.Resolve[device.IGitDevice]()
+		gitDevice := container.Resolve[devicer.IGitDevice]()
 		for index := 0; index < len(lstGit); index++ {
 			lstGit[index].ProjectPath = gitDevice.GetGitPath(lstGit[index].Hub)
 			lstGit[index].IsMaster = lstGit[index].Id == projectPO.GitId // 标记是否为主仓库

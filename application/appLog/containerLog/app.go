@@ -2,9 +2,9 @@ package containerLog
 
 import (
 	"fops/domain/appLog/containerLog"
-	"fs/core/container"
-	"fs/linq"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

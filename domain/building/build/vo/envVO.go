@@ -21,22 +21,6 @@ type EnvVO struct {
 	ProjectEntryPoint string
 	// 程序启动端口
 	ProjectEntryPort int
-	// Fops根目录
-	FopsRoot string
-	// kubectlConfig配置
-	KubeRoot string
-	// NpmModules
-	NpmModulesRoot string
-	// 编译保存的根目录
-	DistRoot string
-	// GIT根目录
-	GitRoot string
-	// Dockerfile文件地址
-	DockerfilePath string
-	// DockerIgnore文件地址
-	DockerIgnorePath string
-	// 生成Shell脚本的存放路径
-	ShellRoot string
 	// Git仓库源代码根目录
 	// /var/lib/fops/git/{gitName}/
 	ProjectGitRoot string
@@ -48,27 +32,6 @@ type EnvVO struct {
 	DockerHub string
 	// Docker镜像
 	DockerImage string
-}
-
-func NewEnvVO() EnvVO {
-	return EnvVO{
-		// Fops根目录
-		FopsRoot: "/var/lib/fops/",
-		// kubectlConfig配置
-		KubeRoot: "/var/lib/fops/kube/",
-		// NpmModules
-		NpmModulesRoot: "/var/lib/fops/npm",
-		// 编译保存的根目录
-		DistRoot: "/var/lib/fops/dist/",
-		// GIT根目录
-		GitRoot: "/var/lib/fops/git/",
-		// Dockerfile文件地址
-		DockerfilePath: "/var/lib/fops/dist/Dockerfile",
-		// DockerIgnore文件地址
-		DockerIgnorePath: "/var/lib/fops/dist/.dockerignore",
-		// 生成Shell脚本的存放路径
-		ShellRoot: "/var/lib/fops/shell/",
-	}
 }
 
 // Print 打印环境变量
@@ -85,11 +48,11 @@ func (env *EnvVO) Print(progress chan string) {
 // ToMap 转成字典
 func (env *EnvVO) ToMap() map[string]string {
 	return map[string]string{
-		"FopsRoot":           env.FopsRoot,
-		"NpmModulesRoot":     env.NpmModulesRoot,
-		"DistRoot":           env.DistRoot,
-		"KubeRoot":           env.KubeRoot,
-		"Git_Root":           env.GitRoot,
+		"FopsRoot":           FopsRoot,
+		"NpmModulesRoot":     NpmModulesRoot,
+		"DistRoot":           DistRoot,
+		"KubeRoot":           KubeRoot,
+		"Git_Root":           GitRoot,
 		"Git_Hub":            env.GitHub,
 		"Build_Number":       strconv.Itoa(env.BuildNumber),
 		"Project_Name":       env.ProjectName,

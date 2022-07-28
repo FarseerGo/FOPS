@@ -1,7 +1,7 @@
 package admin
 
 import (
-	"fs/utils/encrypt"
+	"github.com/farseernet/farseer.go/utils/encrypt"
 	"time"
 )
 

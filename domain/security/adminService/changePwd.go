@@ -3,7 +3,7 @@ package adminService
 import (
 	"errors"
 	"fops/domain/security/admin"
-	"fs/utils/encrypt"
+	"github.com/farseernet/farseer.go/utils/encrypt"
 )
 
 // ChangePwd 修改密码

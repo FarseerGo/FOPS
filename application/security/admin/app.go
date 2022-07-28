@@ -2,8 +2,8 @@ package admin
 
 import (
 	"fops/domain/security/admin"
-	"fs/core/container"
-	"fs/mapper"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/mapper"
 )
 
 type app struct {

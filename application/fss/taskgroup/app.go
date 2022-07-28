@@ -2,20 +2,20 @@ package taskgroup
 
 import (
 	"fops/domain/fss"
-	"fs/core"
-	"fs/core/container"
-	"fs/linq"
-	"fs/utils/parse"
+	"github.com/farseernet/farseer.go/core"
+	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/linq"
+	"github.com/farseernet/farseer.go/utils/parse"
 	"github.com/robfig/cron/v3"
 )
 
 type app struct {
-	repository fss.Repository
+	repository fss.IFssDevice
 }
 
 func NewApp() *app {
 	return &app{
-		repository: container.Resolve[fss.Repository](),
+		repository: container.Resolve[fss.IFssDevice](),
 	}
 }
 
