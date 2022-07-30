@@ -4,10 +4,10 @@ import (
 	"fmt"
 	_ "fops/infrastructure/repository"
 	"github.com/farseernet/farseer.go/configure"
-	"github.com/farseernet/farseer.go/init"
+	"github.com/farseernet/farseer.go/fsApp"
 )
 
 func main() {
-	init.Run("FOPS")
+	fsApp.Initialize("FOPS")
 	fmt.Println(configure.GetString("Database.fops"))
 }

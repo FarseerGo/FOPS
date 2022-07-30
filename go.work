@@ -2,6 +2,8 @@ go 1.18
 
 use (
 	./
-	//github.com/FarseerNet/farseer.go
-	//../Farseer.Go/src/fs
+	//../Farseer.Go
+)
+replace (
+    github.com/farseernet/farseer.go => ../Farseer.Go
 )

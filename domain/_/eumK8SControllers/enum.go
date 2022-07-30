@@ -14,3 +14,20 @@ const (
 	// Cronjob 定时任务
 	Cronjob
 )
+
+// GetName 获取标签名称
+func GetName(eum Enum) string {
+	switch eum {
+	case Deployment:
+		return "deployment"
+	case StatefulSet:
+		return "statefulSet"
+	case DaemonSet:
+		return "daemonSet"
+	case Job:
+		return "job"
+	case Cronjob:
+		return "cronjob"
+	}
+	return ""
+}

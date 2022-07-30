@@ -4,8 +4,7 @@ import (
 	"fops/domain/building/build/vo"
 	"fops/domain/building/devicer"
 	"github.com/farseernet/farseer.go/core/container"
-	"github.com/farseernet/farseer.go/utils/directory"
-	"os"
+	"github.com/farseernet/farseer.go/utils/file"
 )
 
 func init() {
@@ -22,28 +21,28 @@ func (directoryDevice) Check(progress chan string) {
 	// 先删除之前编译的目标文件
 	progress <- "先删除之前的目标文件。"
 
-	directory.ClearFile(vo.DistRoot)
+	file.ClearFile(vo.DistRoot)
 
 	// 自动创建目录
 	progress <- "自动创建目录。"
 
-	if !directory.IsExists(vo.FopsRoot) {
-		os.MkdirAll(vo.FopsRoot, 0766)
+	if !file.IsExists(vo.FopsRoot) {
+		file.CreateDir766(vo.FopsRoot)
 	}
-	if !directory.IsExists(vo.NpmModulesRoot) {
-		os.MkdirAll(vo.NpmModulesRoot, 0766)
+	if !file.IsExists(vo.NpmModulesRoot) {
+		file.CreateDir766(vo.NpmModulesRoot)
 	}
-	if !directory.IsExists(vo.DistRoot) {
-		os.MkdirAll(vo.DistRoot, 0766)
+	if !file.IsExists(vo.DistRoot) {
+		file.CreateDir766(vo.DistRoot)
 	}
-	if !directory.IsExists(vo.KubeRoot) {
-		os.MkdirAll(vo.KubeRoot, 0766)
+	if !file.IsExists(vo.KubeRoot) {
+		file.CreateDir766(vo.KubeRoot)
 	}
-	if !directory.IsExists(vo.ShellRoot) {
-		os.MkdirAll(vo.ShellRoot, 0766)
+	if !file.IsExists(vo.ShellRoot) {
+		file.CreateDir766(vo.ShellRoot)
 	}
-	if !directory.IsExists(vo.GitRoot) {
-		os.MkdirAll(vo.GitRoot, 0766)
+	if !file.IsExists(vo.GitRoot) {
+		file.CreateDir766(vo.GitRoot)
 	}
 	progress <- "前置检查通过。"
 }

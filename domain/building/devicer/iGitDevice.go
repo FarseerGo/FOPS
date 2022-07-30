@@ -17,7 +17,7 @@ type IGitDevice interface {
 	// GetName gitName，项目文件夹名称
 	GetName(gitHub string) string
 	// CloneOrPull 根据判断是否存在Git目录，来决定返回Clone or pull
-	CloneOrPull(git vo.GitVO, progress chan string) bool
+	CloneOrPull(git vo.GitVO, progress chan string, ctx context.Context) bool
 	// CloneOrPullAndDependent 拉取主仓库及依赖仓库
 	CloneOrPullAndDependent(lstGit []vo.GitVO, progress chan string, ctx context.Context) bool
 }

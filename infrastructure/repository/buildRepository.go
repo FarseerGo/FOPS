@@ -14,7 +14,7 @@ import (
 	"fops/infrastructure/repository/model"
 	"github.com/farseernet/farseer.go/core/container"
 	"github.com/farseernet/farseer.go/data"
-	"github.com/farseernet/farseer.go/init"
+	"github.com/farseernet/farseer.go/fsApp"
 	"github.com/farseernet/farseer.go/mapper"
 	"time"
 )
@@ -75,7 +75,7 @@ func (repository buildRepository) ToInfo(id int) build.DomainObject {
 
 // GetUnBuildInfo 获取未构建的任务
 func (repository buildRepository) GetUnBuildInfo() build.DomainObject {
-	po := repository.Where("Status = ? and initdServerId = ?", eumBuildStatus.None, init.AppId).Asc("Id").ToEntity()
+	po := repository.Where("Status = ? and initdServerId = ?", eumBuildStatus.None, fsApp.AppId).Asc("Id").ToEntity()
 	do := mapper.Single[build.DomainObject](po)
 
 	if do.Id > 0 {

@@ -1,4 +1,4 @@
-package queue
+package localQueue
 
 import "time"
 

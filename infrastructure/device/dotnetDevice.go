@@ -3,6 +3,7 @@ package device
 import (
 	"fops/domain/building/build/vo"
 	"fops/domain/building/devicer"
+	"github.com/farseernet/farseer.go/core/container"
 )
 
 func init() {

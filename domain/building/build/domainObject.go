@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"fops/domain/_/eumBuildStatus"
 	"fops/domain/building/build/vo"
-	"github.com/farseernet/farseer.go/init"
-	"github.com/farseernet/farseer.go/utils/directory"
-
+	"github.com/farseernet/farseer.go/fsApp"
+	"github.com/farseernet/farseer.go/utils/file"
 	"strconv"
 	"strings"
 	"time"
@@ -54,7 +53,7 @@ func NewDO1(buildNumber int, project vo.ProjectVO, gits []vo.GitVO, docker vo.Do
 		IsSuccess:     false,
 		CreateAt:      time.Now(),
 		FinishAt:      time.Now(),
-		BuildServerId: init.AppId,
+		BuildServerId: fsApp.AppId,
 		Project:       project,
 		Gits:          gits,
 		Docker:        docker,
@@ -73,7 +72,7 @@ func NewDO2(buildNumber int, project vo.ProjectVO, cluster vo.ClusterVO) DomainO
 		IsSuccess:     false,
 		CreateAt:      time.Now(),
 		FinishAt:      time.Now(),
-		BuildServerId: init.AppId,
+		BuildServerId: fsApp.AppId,
 	}
 }
 
@@ -130,7 +129,7 @@ func (do *DomainObject) GenerateDockerfileContent() {
 	}
 
 	// 如果.net 应用，则自动实现csproj的递归复制并运行dotnet restore
-	var csproj = directory.GetFiles(vo.DistRoot, ".csproj", true)
+	var csproj = file.GetFiles(vo.DistRoot, ".csproj", true)
 	if len(csproj) > 0 {
 		var lstCopyCmd []string
 
