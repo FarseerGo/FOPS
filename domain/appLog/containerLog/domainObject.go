@@ -1,7 +1,7 @@
 package containerLog
 
 import (
-	"fops/domain/_/eumLogLevel"
+	"github.com/farseernet/farseer.go/core/eumLogLevel"
 	"time"
 )
 
