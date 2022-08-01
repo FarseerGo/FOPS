@@ -1,6 +1,7 @@
 package kubectlSetYaml
 
 import (
+	"context"
 	"fops/application/k8s/cluster"
 	"fops/domain/building/devicer"
 	"fops/domain/k8s/pod"
@@ -26,7 +27,8 @@ func NewApp() *app {
 // DeployYaml 发布
 func (app *app) DeployYaml(cluster cluster.Dto, yaml string, progress chan string) bool {
 	app.kubectlDevice.CreateConfigFile(cluster.Name, cluster.Config)
-	return app.kubectlDevice.SetYaml(cluster.Name, "single", yaml, progress)
+	ctx := context.Background()
+	return app.kubectlDevice.SetYaml(cluster.Name, "single", yaml, progress, ctx)
 }
 
 // DeployPodBatch 发布
@@ -36,14 +38,16 @@ func (app *app) DeployPodBatch(lstProject []pod.DomainObject, cluster cluster.Dt
 	}
 
 	app.kubectlDevice.CreateConfigFile(cluster.Name, cluster.Config)
+	ctx := context.Background()
 
 	// 拼接已经选择的所有脚本
-	lstYaml := linq.FromT[pod.DomainObject, string](lstProject).Select(func(item pod.DomainObject) string {
+	var lstYaml []string
+	linq.From(lstProject).Select(&lstYaml, func(item pod.DomainObject) any {
 		return item.MergeTplYaml()
 	})
 	yaml := strings.Join(lstYaml, "\r\n---\r\n")
 
-	return app.kubectlDevice.SetYaml(cluster.Name, "all", yaml, progress)
+	return app.kubectlDevice.SetYaml(cluster.Name, "all", yaml, progress, ctx)
 }
 
 // DeployPod 发布
@@ -56,8 +60,9 @@ func (app *app) DeployPod(pod pod.DomainObject, cluster cluster.Dto, progress ch
 	}
 
 	app.kubectlDevice.CreateConfigFile(cluster.Name, cluster.Config)
+	ctx := context.Background()
 
 	// 拼接已经选择的所有脚本
 	var yaml = pod.MergeTplYaml()
-	return app.kubectlDevice.SetYaml(cluster.Name, "single", yaml, progress)
+	return app.kubectlDevice.SetYaml(cluster.Name, "single", yaml, progress, ctx)
 }

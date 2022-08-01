@@ -6,8 +6,8 @@ import (
 	"fops/application/fss/runLog"
 	"fops/application/fss/task"
 	"fops/application/fss/taskgroup"
-	"fops/domain/_/eumLogLevel"
 	"github.com/farseernet/farseer.go/core"
+	"github.com/farseernet/farseer.go/core/eumLogLevel"
 )
 
 type IFssDevice interface {

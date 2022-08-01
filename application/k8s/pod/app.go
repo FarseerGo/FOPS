@@ -34,14 +34,14 @@ func (app *app) ToList(groupId int, clusterId int) []pod.DomainObject {
 		for _, projectGroupDo := range lstGroup {
 			// 如果项目组不包含当前选中的集群，则移除项目
 
-			if !linq.FromC(projectGroupDo.ClusterIds).Contains(clusterId) {
+			if !linq.From(projectGroupDo.ClusterIds).ContainsItem(clusterId) {
 				lstProject = linq.From(lstProject).RemoveAll(func(item pod.DomainObject) bool {
 					return item.GroupId == projectGroupDo.Id
 				})
 			}
 		}
 	}
-	return linq.FromOrder[pod.DomainObject, int](lstProject).OrderByDescending(func(item pod.DomainObject) int { return item.Id })
+	return linq.From(lstProject).OrderByDescending(func(item pod.DomainObject) any { return item.Id })
 }
 
 // Update 更新模板ID

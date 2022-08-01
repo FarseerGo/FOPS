@@ -15,8 +15,8 @@ const (
 	Cronjob
 )
 
-// GetName 获取标签名称
-func GetName(eum Enum) string {
+// String 获取标签名称
+func (eum Enum) String() string {
 	switch eum {
 	case Deployment:
 		return "deployment"

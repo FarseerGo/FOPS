@@ -38,7 +38,7 @@ func (app *app) ToList(groupId int, clusterId int) []Dto {
 		var lstGroup = app.projectGroupRepository.ToList()
 		for _, item := range lstGroup {
 			// 如果项目组不包含当前选中的集群，则移除项目
-			if !linq.FromC(item.ClusterIds).Contains(clusterId) {
+			if !linq.From(item.ClusterIds).ContainsItem(clusterId) {
 				lstProject = linq.From(lstProject).RemoveAll(func(item project.DomainObject) bool {
 					return item.GroupId == item.Id
 				})
@@ -47,9 +47,9 @@ func (app *app) ToList(groupId int, clusterId int) []Dto {
 	}
 
 	// 初始化集群默认值
-	lstNoExistsCluster := linq.From(lstProject).FindAll(func(project project.DomainObject) bool {
+	lstNoExistsCluster := linq.From(lstProject).Where(func(project project.DomainObject) bool {
 		return !linq.Dictionary(project.ClusterVer).ExistsKey(clusterId)
-	})
+	}).ToArray()
 
 	for _, project := range lstNoExistsCluster {
 		project.ClusterVer[clusterId] = &domain.ClusterVerVO{
@@ -59,16 +59,16 @@ func (app *app) ToList(groupId int, clusterId int) []Dto {
 
 	// 设置Docker模板名称
 	lstDTO := mapper.Array[Dto](lstProject)
-	lstDTO = linq.FromOrder[Dto, int](lstDTO).OrderByDescending(func(item Dto) int {
+	lstDTO = linq.From(lstDTO).OrderByDescending(func(item Dto) any {
 		return item.Id
 	})
 
 	lstDockerfile := app.dockerfileTplRepository.ToList()
 
 	for _, buildProjectDTO := range lstDTO {
-		dockerfile := linq.From(lstDockerfile).Find(func(item dockerfileTpl.DomainObject) bool {
+		dockerfile := linq.From(lstDockerfile).Where(func(item dockerfileTpl.DomainObject) bool {
 			return item.Id == buildProjectDTO.DockerfileTpl
-		})
+		}).First()
 		if dockerfile.Id > 0 {
 			buildProjectDTO.DockerfileName = dockerfile.Name
 		}

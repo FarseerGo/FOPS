@@ -1,6 +1,7 @@
 package git
 
 import (
+	"context"
 	"fops/domain/building/build/vo"
 	"fops/domain/building/devicer"
 	"fops/domain/metaData/git"
@@ -78,5 +79,7 @@ func (app *app) CloneOrPull(dto Dto, lstLog []string) bool {
 		progress <- log
 	}
 	vo := mapper.Single[vo.GitVO](dto)
-	return app.device.CloneOrPull(vo, progress)
+
+	ctx := context.Background()
+	return app.device.CloneOrPull(vo, progress, ctx)
 }

@@ -4,6 +4,7 @@ import (
 	_ "fops/infrastructure/repository"
 	"fops/interfaces/controller"
 	"github.com/beego/beego/v2/server/web"
+	"github.com/farseernet/farseer.go/configure"
 	"github.com/farseernet/farseer.go/fsApp"
 	"github.com/valyala/fasthttp"
 	"log"
@@ -14,6 +15,9 @@ import (
 
 func main() {
 	fsApp.Initialize("FOPS")
+	web.BConfig.WebConfig.Session.SessionOn = true
+	configure.SetDefault("FSSServer", "http://fss:888")
+
 	go func() {
 		for {
 			log.Println("当前routine数量:", runtime.NumGoroutine())

@@ -1,6 +1,7 @@
 package kubectlSetImage
 
 import (
+	"context"
 	"fops/domain/building/devicer"
 	"fops/domain/k8s/cluster"
 	"fops/domain/metaData/dockerHub"
@@ -36,8 +37,9 @@ func (app *app) SyncImages(clusterId int, projectId int, progress chan string) b
 	dockerVer := parse.Convert(projectDo.DockerVer, 0)
 	dockerImage := app.dockerDevice.GetDockerImage(dockerDo.Hub, projectDo.Name, dockerVer)
 
+	ctx := context.Background()
 	// 更新镜像
-	result := app.kubectlDevice.SetImagesByClusterName(clusterDo.Name, clusterDo.Config, projectDo.Name, dockerImage, projectDo.K8SControllersType, progress)
+	result := app.kubectlDevice.SetImagesByClusterName(clusterDo.Name, clusterDo.Config, projectDo.Name, dockerImage, projectDo.K8SControllersType, progress, ctx)
 	if result {
 		progress <- "更新镜像版本完成。"
 	}

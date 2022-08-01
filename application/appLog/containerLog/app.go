@@ -19,7 +19,7 @@ func NewApp() *app {
 func (app *app) ToList() []Dto {
 	lstDo := app.repository.ToList(100)
 	lstDto := mapper.Array[Dto](lstDo)
-	return linq.FromOrder[Dto, int64](lstDto).OrderBy(func(item Dto) int64 {
+	return linq.From(lstDto).OrderBy(func(item Dto) any {
 		return item.CreateAt.UnixMicro()
 	})
 }

@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="移除废弃代码">
+    <list default="true" id="66f45698-2c69-4fd5-bfcb-9daa1d7cac9d" name="Changes" comment="升级框架">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/_/eumLogLevel/enum.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/appLog/containerLog/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/appLog/containerLog/domainObject.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/k8s/pod/domainObject.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/k8s/pod/domainObject.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.work.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.work.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/appLog/containerLog/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/appLog/containerLog/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/building/buildProject/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/building/buildProject/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fss/client/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/fss/client/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fss/runLog/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/fss/runLog/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fss/task/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/fss/task/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/fss/taskgroup/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/fss/taskgroup/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/kubectlSetImage/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/kubectlSetImage/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/kubectlSetYaml/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/kubectlSetYaml/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/k8s/pod/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/k8s/pod/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/git/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/git/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroup/app_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/metaData/projectGroup/dto.go" beforeDir="false" afterPath="$PROJECT_DIR$/application/metaData/projectGroup/dto.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/_/eumK8SControllers/enum.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/_/eumK8SControllers/enum.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/fss/iFssDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/fss/iFssDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/device/fssDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/device/fssDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/device/kubectlDevice.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/device/kubectlDevice.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/localQueue/buildLogConsumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/localQueue/buildLogConsumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,29 +69,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;ShowUsagesActions.previewPropertyKey&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/steden/Desktop/code/project/fops.go&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "ShowUsagesActions.previewPropertyKey": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "/Users/steden/Desktop/code/project/fops.go",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.externalTools"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
-      &quot;yaml&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "yaml"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
   </component>
@@ -216,7 +230,8 @@
     <MESSAGE value="修改包的导入路径" />
     <MESSAGE value="完成fops，整个领域层的代码重构" />
     <MESSAGE value="移除废弃代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="移除废弃代码" />
+    <MESSAGE value="升级框架" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级框架" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

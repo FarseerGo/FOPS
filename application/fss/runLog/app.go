@@ -1,14 +1,15 @@
 package runLog
 
 import (
-	"fops/domain/_/eumLogLevel"
 	"fops/domain/fss"
 	"github.com/farseernet/farseer.go/core"
 	"github.com/farseernet/farseer.go/core/container"
+	"github.com/farseernet/farseer.go/core/eumLogLevel"
 )
 
 type app struct {
 	repository fss.IFssDevice
+	fssServer  string
 }
 
 func NewApp() *app {
@@ -19,5 +20,5 @@ func NewApp() *app {
 
 // GetList 获取日志
 func (app *app) GetList(jobName string, logLevel eumLogLevel.Enum, pageSize int, pageIndex int) core.PageList[Dto] {
-	return app.repository.GetRunLogList(jobName, logLevel, pageSize, pageIndex)
+	return app.repository.GetRunLogList(app.fssServer, jobName, logLevel, pageSize, pageIndex)
 }
